@@ -7,7 +7,7 @@ const DeleteAlert = () => {
 
   const fetchAlerts = async () => {
     try {
-      const res = await axios.get('http://localhost:8080/api/alerts');
+      const res = await axios.get('https://stockbackend-uier.onrender.com/api/alerts');
       setAlerts(res.data);
     } catch (err) {
       toast.error("⚠️ Couldn't load alerts");
@@ -16,7 +16,7 @@ const DeleteAlert = () => {
 
   const deleteAlert = async (email, symbol, threshold) => {
     try {
-      await axios.delete('http://localhost:8080/api/alerts/delete', {
+      await axios.delete('https://stockbackend-uier.onrender.com/api/alerts/delete', {
         params: { email, symbol, threshold }
       });
       toast.success('🗑️ Alert deleted');
