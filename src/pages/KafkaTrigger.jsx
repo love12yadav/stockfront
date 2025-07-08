@@ -3,7 +3,7 @@ import axios from 'axios';
 const KafkaTrigger = () => {
   const triggerKafka = async () => {
     try {
-      await axios.get('http://localhost:8080/api/test/kafka');
+      await axios.get('https://stockbackend-uier.onrender.com/api/test/kafka');
       alert('Kafka test message sent!');
     } catch (error) {
       console.error('Kafka test error:', error);
