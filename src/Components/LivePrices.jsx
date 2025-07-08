@@ -6,7 +6,7 @@ const LivePrices = () => {
 
   useEffect(() => {
     const fetchPrices = () => {
-      axios.get("http://localhost:8080/api/prices")
+      axios.get("https://stockbackend-uier.onrender.com/api/prices")
         .then(res => setPrices(res.data))
         .catch(err => console.error("❌ Error fetching prices:", err));
     };
