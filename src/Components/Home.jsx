@@ -19,7 +19,7 @@ const Home = () => {
     }
 
     try {
-      const res = await axios.get(`http://localhost:8080/api/stocks/price/${symbol}`);
+      const res = await axios.get(`https://stockbackend-uier.onrender.com/api/stocks/price/${symbol}`);
       setPriceData(res.data);
     } catch {
       toast.error('Failed to fetch price');
@@ -27,7 +27,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    const socket = new SockJS('http://localhost:8080/ws');
+    const socket = new SockJS('https://stockbackend-uier.onrender.com/ws');
     const client = new Client({
       webSocketFactory: () => socket,
       onConnect: () => {
@@ -43,7 +43,7 @@ const Home = () => {
 
   const testKafka = async () => {
     try {
-      await axios.get('http://localhost:8080/api/test/kafka');
+      await axios.get('https://stockbackend-uier.onrender.com/api/test/kafka');
       toast.success('📤 Kafka test message sent!');
     } catch {
       toast.error('Kafka trigger failed');
@@ -52,7 +52,7 @@ const Home = () => {
 
   const fetchLivePrices = async () => {
     try {
-      const res = await axios.get('http://localhost:8080/api/prices');
+      const res = await axios.get('https://stockbackend-uier.onrender.com/api/prices');
       setLivePrices(res.data);
     } catch (err) {
       console.error('Failed to load live prices:', err);
