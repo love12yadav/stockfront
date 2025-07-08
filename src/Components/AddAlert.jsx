@@ -23,7 +23,7 @@ const AddAlert = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:8080/api/alerts', formData);
+      await axios.post('https://stockbackend-uier.onrender.com/api/alerts', formData);
       toast.success('✅ Alert added successfully!');
       setFormData({ email: '', phone: '', symbol: '', threshold: '', isAboveThreshold: true });
     } catch (error) {
