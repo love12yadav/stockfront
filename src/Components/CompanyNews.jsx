@@ -12,7 +12,7 @@ const CompanyNews = ({ symbol }) => {
       try {
         const from = '2025-01-01';
         const to = '2025-06-29';
-        const res = await axios.get(`http://localhost:8080/api/news/${symbol}?from=${from}&to=${to}`);
+        const res = await axios.get(`https://stockbackend-uier.onrender.com/api/news/${symbol}?from=${from}&to=${to}`);
         setHeadlines(res.data.map(item => item.headline));
       } catch (err) {
         console.error('Failed to fetch company news:', err);
