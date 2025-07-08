@@ -11,7 +11,7 @@ const StockChart = ({ symbol }) => {
     const fetchChartData = async () => {
       setLoading(true);
       try {
-        const res = await axios.get(`http://localhost:8080/api/stocks/price/history/${symbol}`);
+        const res = await axios.get(`https://stockbackend-uier.onrender.com/api/stocks/price/history/${symbol}`);
         const points = res.data;
 
         if (!points || points.length === 0) {
