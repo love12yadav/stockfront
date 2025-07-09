@@ -1,12 +1,52 @@
-# React + Vite
+# 🎯 Stock Price Notifier – Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sleek and responsive **React-based frontend** for the Stock Price Notifier application. Users can register stock price alerts and receive **real-time notifications** via **WebSocket** and **email**, integrated with a Spring Boot + Kafka backend.
 
-Currently, two official plugins are available:
+> 🔗 **Backend Repo**: [love12yadav/stockbackend](https://github.com/love12yadav/stockbackend)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 📝 Register alerts (stock symbol, price, condition, email)
+- 🌐 Connects to WebSocket for real-time stock price breach notifications
+- 🔔 Displays instant in-app toasts when stock crosses alert threshold
+- 📦 Fetches and displays saved alerts from backend
+- ⚙️ Axios-based API integration
+
+---
+
+## 🧩 Tech Stack
+
+| Layer       | Technology            |
+|-------------|------------------------|
+| Frontend    | React + Vite           |
+| UI Styling  | Tailwind CSS           |
+| API Calls   | Axios                  |
+| Realtime    | WebSocket              |
+| Notifications | React-Toastify       |
+
+---
+
+---
+
+## ⚙️ How It Works
+
+1. 🌐 User enters stock symbol, email, threshold, and condition (above/below)
+2. 📤 Frontend sends this data to backend via REST API
+3. 💾 Backend saves it to MySQL and listens for price updates via Kafka
+4. 📡 If threshold is breached:
+   - 📬 Email is sent to user
+   - 🔔 WebSocket pushes real-time notification to frontend
+5. 🔄 Frontend displays a toast with stock update
+
+---
+
+## 🧪 Sample WebSocket Message
+
+json
+{
+  "symbol": "AAPL",
+  "price": 180.0,
+  "message": "AAPL has crossed your alert threshold"
+}
